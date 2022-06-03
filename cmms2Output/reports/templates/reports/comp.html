@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono&display=swap" rel="stylesheet">
+	<style>
+		*{
+			padding:0;
+			box-sizing:border-box;
+			margin:0
+		 }
+		body{
+			 background-image: url('{% static "images/loginwp.png" %}');
+			 background-size: cover;
+			 background-repeat: no-repeat;
+			 background-attachment: fixed;
+			 background-position: center;
+		 	 /*width: 1920px;*/
+		 	 height: 100vh;
+		}
+		.container {
+ 			 /*perspective: 800px;*/
+ 			 width: 1540px;
+ 			 margin-bottom: 30px;
+		}
+		.row {
+  			display: flex;
+  			flex-wrap: wrap;;
+  			padding-left: 400px;
+  			padding-top: 40px;
+  			/*position: center;*/
+		}
+		.seat {
+		  background-color: #444451;
+		  color: #fff !important;
+		  height: 56px;
+		  width: 62px;
+		  margin: 20px;
+		    outline-style: solid;
+  			outline-color: white;
+  			outline-width: 2px;
+  			outline-offset: -3px;
+		  font-size: 35px;
+		  text-align: center;
+		  font-family: 'Spline Sans Mono', monospace;
+		  /*border-top-left-radius: 10px;*/
+		  /*border-top-right-radius: 10px;*/
+		  padding-top: 5px;
+		  border-radius: 10%;
+		}
+
+		.seat.selected {
+		  background-color: green;
+		}
+
+		.seat.sold {
+		  background-color: red;
+		}
+
+		.seat:nth-of-type(5n) {
+		  margin-right: 78px;
+		  /*margin-bottom: 10px;*/
+		}
+
+		.seat:not(.sold):hover {
+		  cursor: pointer;
+		  text-decoration: none;
+		  transform: scale(1.2);
+		}
+
+		.showcase .seat:not(.sold):hover {
+		  cursor: default;
+		  transform: scale(1);
+		}
+	   .seat a, .seat a:visited, .seat a:hover, a.active {
+  		color: inherit !important;
+			padding-left: 0px ;
+			border-left: 0px ;
+		}
+		h1{
+			padding-left: 800px;
+			top: 70px;
+			position: absolute;
+			color: white;
+			font-family: 'Spline Sans Mono', monospace;
+			text-transform: uppercase;
+		}
+    	@media (max-width: 1536px){
+			.container{
+				transform: scale(0.8);
+				width: 1350px;
+			}
+			.seat{
+				transform: scale(0.9);
+				margin: 10px;
+			}
+			h1{
+				padding-left: 730px;
+				transform: scale(0.8);
+			 }
+			.seat:nth-of-type(5n){
+				margin-right: 58px;
+			} 
+      }	
+	</style>
+</head>
+<body>
+	{% if request.user in ug %}
+		{% include 'reports/navbar.html' %}
+	{% else %}
+		{% include 'reports/anavbar.html' %}
+	{% endif %}	
+  <H1>Block Number {{b1}} <br>Lab Number {{rooms}} </H1>
+ <div class="container">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="row">
+      	   {% for i in comp %}  
+      	   		{% if i.c_status == 0 %}	
+        			<div class="seat">
+        				<a class="bruh" href ="{% url 'thing' b1.bl_id rooms.l_no i.c_id %}">  
+        			    {{i.comp_no}}
+        			  </a>
+        			 </div>
+        			{% else %}
+      	   		<div class="seat sold">{{i.comp_no}}</div>
+      	   		{% endif %}
+        	 {% endfor %}
+      </div>
+  </div>
+</body>
+</html>
