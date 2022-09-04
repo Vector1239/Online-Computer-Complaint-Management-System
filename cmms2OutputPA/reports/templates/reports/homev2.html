@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	</script>
+	<style>
+		*{
+			padding:0;
+			box-sizing:border-box;
+			margin:0
+			/*height:  100%;*/
+		 }
+		.bg-image{
+			 background-image: url('https://raw.githubusercontent.com/Vector1239/stuff/2ffc33bfac03c6d062d39863ebc25d1f2a809822/cmms2Output/static/images/wp.png');
+			 background-size: cover;
+			 background-repeat: no-repeat;
+		 	 /*background-size: 100% ;*/
+		 	 height: 100vh;
+		 	 /*background-position: center;*/
+		}
+		.butt1{
+			/*padding: 0;*/
+			/*margin: 0;*/
+			width: 105%;
+			/*width: 285px;*/
+			height: 487px;
+			min-width: 287px;
+			max-width: 285px;
+			text-align: center;
+			top: 300px;
+			left: 500px;
+			overflow: hidden;
+			position: relative;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 30px 60px rgba(0,0,0,.5);
+			transition-duration: .60s;
+			background:url('https://raw.githubusercontent.com/Vector1239/stuff/2ffc33bfac03c6d062d39863ebc25d1f2a809822/cmms2Output/static/images/butt1.png');
+			transform: skew(-12deg);
+		}
+		.butt1:hover{
+		 cursor: pointer;
+		 box-shadow: 0 10px 20px rgba(0,0,0,.5);
+		 transform: skew(-12deg);
+		 transform: scale(.95);
+		}
+
+		.butt2{
+			padding: 0;
+			margin: 0;
+			width: 285px;
+			height: 487px;
+			text-align: center;
+			top: 300px;
+			left: 800px;
+			position: relative;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 30px 60px rgba(0,0,0,.5);
+			transition-duration: .60s;
+			background:url('https://raw.githubusercontent.com/Vector1239/stuff/2ffc33bfac03c6d062d39863ebc25d1f2a809822/cmms2Output/static/images/butt2.png');
+			transform: skew(-12deg);
+		}
+		.butt2:hover{
+		 cursor: pointer;
+		 box-shadow: 0 10px 20px rgba(0,0,0,.5);
+		 transform: skew(-12deg);
+		 transform: scale(.95);
+		}
+        @media (max-width: 1536px){
+             .butt1{
+                 padding: 0;
+                 margin: 0;
+                 top: 150px;
+                 left: 400px;
+                 transform: scale(0.8) skew(-6deg);
+            }
+            .butt1:hover{
+                transform: skew(-12deg);
+                 transform: scale(.75);
+            }
+            .butt2{
+                transform: scale(0.8) skew(-6deg);
+                padding: 0;
+                margin: 0;
+                top: 150px;
+                left: 600px;
+            }
+            .butt2:hover{
+                transform: skew(-12deg);
+                 transform: scale(.75);
+            }
+	</style>
+</head>
+<body>
+	<div class="bg-image">
+		<a href="{% url 'slogin' %}"><button class="butt1"></button></a>
+		<a href="{% url 'alogin' %}"><button class="butt2"></button></a>
+		<!-- <img src="{% static 'images/butt1.png' %}"/> -->
+	</div>
+</body>
+</html>
